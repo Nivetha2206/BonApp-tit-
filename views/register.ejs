@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html ng-app="loginApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Login Form Example</title>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'>
+  <link rel="stylesheet" href="C:\Users\sbnivetha\Desktop\Web Lab\CSS files\login.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+  <script>
+    angular.module('loginApp', [])
+      .controller('LoginController', function ($scope) {
+        $scope.validateForm = function () {
+          if ($scope.myForm.$valid) {
+            var x = $scope.pwd;
+            var y = $scope.cpwd;
+            var e = $scope.email;
+            if (x === y && x !== "" && y !== "" && e!== "") {
+              alert("Welcome");
+            } 
+            else if(e==""){
+                alert("Enter email ID");
+            }
+            else if(x!=y){
+              alert("Wrong password");
+            }
+          } else {
+            alert("Invalid form");
+          }
+
+        };
+      });
+  </script>
+</head>
+<body ng-controller="LoginController">
+<div class="login-form">
+  <form name="myForm" novalidate action="template.html">
+    <h1>Register</h1>
+    <div class="content">
+      <div class="input-field">
+        <input name="email" type="email" placeholder="Email" autocomplete="nope" required>
+        <div ng-messages="myForm.email.$error" ng-if="myForm.email.$touched">
+          <p style="color: red;" ng-message="required">Email is required.</p>
+          <p style="color: red;" ng-message="email">Invalid email address.</p>
+        </div>
+      </div>
+      <div class="input-field">
+        <input name="pwd" type="password" placeholder="Password" autocomplete="new-password" required ng-model="pwd">
+        <div ng-messages="myForm.pwd.$error" ng-if="myForm.pwd.$touched">
+          <div style="color: red;" ng-message="required">Password is required.</div>
+        </div>
+      </div>
+      <div class="input-field">
+        <input name="cpwd" type="password" placeholder="Confirm Password" autocomplete="new-password" ng-model="cpwd" ng-required="pwd">
+        <div ng-messages="myForm.cpwd.$error" ng-if="myForm.cpwd.$touched">
+          <div style="color: red;" ng-message="required">Confirm Password is required.</div>
+          <div style="color: red;" ng-message="match">Passwords do not match.</div>
+        </div>
+      </div>
+      <a href="#" class="link">Forgot Your Password?</a>
+    </div>
+    <div class="action">
+      <button><a href="C:\Users\sbnivetha\Desktop\Web Lab\HTML files\login.html">Login</a></button>
+      <button ng-click="validateForm()">Submit</button>
+    </div>
+  </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html ng-app="foodApp">
+<head>
+  <link rel="stylesheet" href="C:\Users\sbnivetha\Desktop\Web Lab\CSS files\menu-bar.css">
+  <style>
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-gap: 20px;
+      margin: 20px;
+    }
+
+    .grid-item {
+      background-color: #f9f9f9;
+      padding: 20px;
+      border-radius: 5px;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <title>Food-Recipes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Rajdhani:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Shantell+Sans&display=swap" rel="stylesheet">
+</head>
+
+<body style="background-color: #E9FFEB ;" ng-controller="menuController">
+  <div class="body">
+    <header>
+        <a class="logo" href="#">Bon Appétit</a>
+        <div class="group">
+          <ul class="navigation">
+            <li><a href="./template.html">Home</a></li>
+            <li><a href="./Post.html">Post Recipes</a></li>
+            <li><a href="./Profile.html">Profile</a></li>
+            <li style="width: 100px;padding-top: 5px;">
+              <div class="custom-select" style="width:200px;">
+                <select class="drop-down">
+                  <option value="0">Cuisines</option>
+                  <option value="1">Indian</option>
+                  <option value="2">Mexican</option>
+                  <option value="3">American</option>
+                </select>
+              </div>
+            </li>
+          </ul>
+          <div class="search" style="padding-left: 30px;">
+            <span class="icon">
+              <ion-icon name="search-outline" class="searchBtn" ng-click="toggleSearchBox()"></ion-icon>
+              <ion-icon name="close-outline" class="closeBtn" ng-click="toggleSearchBox()"></ion-icon>
+            </span>
+          </div>
+        </div>
+        <div class="searchBox" ng-class="searchBoxActive ? 'active' : ''">
+          <input type="text" placeholder="Search for Profiles / Recipes" ng-model="searchQuery">
+        </div>
+      </header>
+  </div>
+  <div style="margin-top: 100px;"></div>
+  <br>
+  
+  <div class="grid-container">
+    <div class="grid-item" ng-repeat="recipe in recipes">
+      <h3>{{ recipe.foodTitle }}</h3>
+      <p>{{ recipe.recipe }}</p>
+
+      <img src="{{ recipe.foodImage }}" style="width: 100%; max-height: 200px;">
+      <p>{{ recipe.hashTags }}</p>
+    </div>
+  </div>
+
+  <footer style="background: #E9FFEB;">
+    <footer style="background: #E9FFEB;">
+        <p>Author: Nivetha SB</p>
+        <p>Mail ID: <a href="foodrecipes@gmail.com">foodrecipes@gmail.com</a></p>
+      </footer>
+  </footer>
+
+  <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script>
+    angular.module('foodApp', [])
+      .controller('menuController', function ($scope) {
+        // Sample data for demonstration
+
+        // $http.get("data/db.json")
+        // .then(function(response){
+        //     $scope.datas=response.data;
+        // });
+
+        $scope.searchBoxActive = false;
+
+        $scope.toggleSearchBox = function () {
+        $scope.searchBoxActive = !$scope.searchBoxActive;
+        };
+
+        $scope.recipes = [{
+            foodTitle: "Burger",
+            recipe: "absdjbwvjehvekwjvkjwev",
+            hashTags: "#American",
+            foodImage: "Images\burger.jpg"
+        },
+        {
+            foodTitle: "Burger",
+            recipe: "absdjbwvjehvekwjvkjwev",
+            hashTags: "#American",
+            foodImage: "Images\burger.jpg"
+        },
+        {
+            foodTitle: "Burger",
+            recipe: "absdjbwvjehvekwjvkjwev",
+            hashTags: "#American",
+            foodImage: "Images\burger.jpg"
+        },
+        {
+            foodTitle: "Burger",
+            recipe: "absdjbwvjehvekwjvkjwev",
+            hashTags: "#American",
+            foodImage: "Images\burger.jpg"
+        },
+        {
+            foodTitle: "Burger",
+            recipe: "absdjbwvjehvekwjvkjwev",
+            hashTags: "#American",
+            foodImage: "Images\burger.jpg"
+        },
+        {
+            foodTitle: "Burger",
+            recipe: "absdjbwvjehvekwjvkjwev",
+            hashTags: "#American",
+            foodImage: "Images\burger.jpg"
+        }
+        ];
+      });
+  </script>
+</body>
+</html>

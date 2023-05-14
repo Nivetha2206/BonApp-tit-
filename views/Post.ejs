@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <link rel="stylesheet" href="C:\Users\sbnivetha\Desktop\Web Lab\CSS files\post.css">
+  <link rel="stylesheet" href="C:\Users\sbnivetha\Desktop\Web Lab\CSS files\menu-bar.css">
+  
+
+  <title>Food-Recipes</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Rajdhani:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Shantell+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Changa&display=swap" rel="stylesheet">
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script>
+    var app = angular.module('myApp', []);
+    app.controller('PostController', function($scope) {
+      $scope.postRecipe = function() {
+        // Handle the post recipe functionality here
+        console.log('Post Recipe');
+      };
+    });
+  </script>
+</head>
+<body style="background-color: #E9FFEB ;" ng-controller="PostController">
+
+  <header>
+    <a class="logo" href="#">Bon Appétit</a>
+    <div class="group">
+        <ul class="navigation">
+            <li><a href="./template.html">Home</a></li>
+            <li><a href="./Post.html">Post Recipes</a></li>
+            
+            <li><a href="./Profile.html">Profile</a></li>
+            <li style="width: 100px;padding-top: 5px;"> 
+              <div class="custom-select" style="width:200px;">
+                <select class="drop-down">
+                  <option value="0">Cusines</option>
+                  <option value="1">Indian</option>
+                  <option value="2">Mexican</option>
+                  <option value="3">American</option>
+                </select>
+              </div>
+            </li>
+        </ul>
+        <div class="search" style="padding-left: 30px ;">
+            <span class="icon">
+                <ion-icon name="search-outline" class="searchBtn"></ion-icon>
+                <ion-icon name="close-outline" class="closeBtn"></ion-icon>
+            </span>
+        </div>
+    </div>
+    <div class="searchBox">
+        <input type="text" placeholder="Search for Profiles / Recipes" name="" id="">
+    </div>
+  </header>
+ 
+
+  <div>
+    <div>
+      <h1 class="title">Post Recipe</h1>
+    </div>
+    <div style="text-align:center;margin-top: 20px;">
+      <form ng-submit="postRecipe()">
+        <label for="">Food Title:</label>
+        <input type="text" placeholder="Title" ng-model="new.foodTitle"><br><br>
+      
+        <label for="">Recipe:</label>
+        <input type="text" placeholder="Type in the recipe" style="height: 100px;" ng-model="new.recipe"><br><br>
+      
+        <label for="">Hash Tags:</label>
+        <input type="text" placeholder="Hash Tags" ng-model="new.hashTags"><br><br>
+      
+        <label for="">Image of Food:</label>
+        <input type="file" accept="image/*" capture="user" ng-model="new.foodImage"><br><br>
+      
+        <input class="post-btn" type="submit" value="Post">
+      </form>
+      
+    </div>
+  </div>
+  <footer>
+    <p>Author: Nivetha SB</p>
+    <p>Mail ID: <a href="foodrecipes@gmail.com">foodrecipes@gmail.com</a></p>
+  </footer>
+  <script>
+    var app = angular.module('myApp', []);
+    app.controller('PostController', ['$scope', '$http', function($scope, $http) {
+    
+      $scope.data = []; // Initialize as an empty array
+
+      $scope.postRecipe = function() {
+        $scope.data.push({
+          foodTitle: $scope.new.foodTitle,
+          recipe: $scope.new.recipe,
+          hashTags: $scope.new.hashTags,
+          foodImage: $scope.new.foodImage
+        });
+  
+        console.log($scope.data);
+    
+        $scope.new.foodTitle = "";
+        $scope.new.recipe = "";
+        $scope.new.hashTags = "";
+
+      };
+    }]);
+  </script>
+  
+  
+  
+  
+  
+  </body>
+  </html>

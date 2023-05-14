@@ -1,0 +1,105 @@
+body{
+  margin: 0px;
+  padding: 0px;;
+}
+
+.body{
+ background-color: #FFFF;   
+}
+#title{
+    font-family: 'Pacifico', cursive;
+    font-size: 4rem;
+    text-align:center;
+    color: #0E5200;
+}
+
+
+.dropbtn {
+  background-color: white;
+  color: #0E5200;
+  padding: 16px;
+  font-size: 23px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: #0E5200;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+
+
+.menu{
+  padding-top: 20px;
+}
+
+nav{
+    font-family: 'Shantell Sans', cursive;
+    font-size: 1.4rem;
+    color: #0E5200;
+}
+
+.search{
+  font-family: 'Shantell Sans', cursive;
+}
+
+.search-btn{
+  font-family: 'Shantell Sans', cursive;
+  background-color: #B6FFA8;
+  border-color: #B6FFA8;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: inline-flex;
+  }
+  
+  li {
+    /* float: left; */
+    display: table-cell;
+    float: none;
+  }
+  
+  li a {
+    display: block;
+    padding: 8px;
+    background-color: #FFFF;
+  }
+
+footer{
+    background-color: #B6FFA8;
+}
+
+a{
+  text-decoration: none;
+}
+a:link{
+  color:#0E5200;
+}
+a:visited{
+  color: #0E5200;
+}
+.menu:hover {
+  color: #B6FFA8;
+}
+

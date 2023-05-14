@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="C:\Users\sbnivetha\Desktop\Web Lab\CSS files\menu-bar.css">
+  <link rel="stylesheet" href="C:\Users\sbnivetha\Desktop\Web Lab\CSS files\profile.css">
+  <title>Food-Recipes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Lao:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Rajdhani:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Shantell+Sans&display=swap" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+</head>
+
+<body  ng-app="myApp" style="background-color: #E9FFEB ;">
+  <div class="navbar">
+    <header>
+      <a class="logo" href="#">Bon Appétit</a>
+      <div class="group">
+        <ul class="navigation">
+          <li><a href="./template.html">Home</a></li>
+          <li><a href="./Post.html">Post Recipes</a></li>
+          <li><a href="./Profile.html">Profile</a></li>
+          <li style="width: 100px;padding-top: 5px;">
+            <div class="custom-select" style="width:200px;">
+              <select class="drop-down">
+                <option value="0">Cuisines</option>
+                <option value="1">Indian</option>
+                <option value="2">Mexican</option>
+                <option value="3">American</option>
+              </select>
+            </div>
+          </li>
+        </ul>
+        <div class="search" style="padding-left: 30px;">
+          <span class="icon">
+            <ion-icon name="search-outline" class="searchBtn" ng-click="toggleSearchBox()"></ion-icon>
+            <ion-icon name="close-outline" class="closeBtn" ng-click="toggleSearchBox()"></ion-icon>
+          </span>
+        </div>
+      </div>
+      <div class="searchBox" ng-class="searchBoxActive ? 'active' : ''">
+        <input type="text" placeholder="Search for Profiles / Recipes" ng-model="searchQuery">
+      </div>
+    </header>
+  </div>
+ 
+  
+    <!-- Your profile HTML code here -->
+    <div class="header-wrapper">
+        <div class="cols-container">
+          <div class="left-col" >
+            <div ng-controller="ProfileController">
+                <div class="img-container" style="padding-left: 45%;">
+                    <img src="C:\Users\sbnivetha\Desktop\Web Lab\Images\Profile Picture.png" alt="Anna George">
+                  </div>
+                  <h2>{{ profileName }}</h2>
+                  <button class="follow">Follow</button>
+                  <br><br>
+                  <p>About: <br> {{ aboutText }}</p>
+                  <ul class="about" style="margin-left: 150px; margin-right: 150px;">
+                    <li><span>{{ followersCount }}</span>Followers</li>
+                    <li><span>{{ followingCount }}</span>Following</li>
+                    <li><span>{{ postsCount }}</span>Posts</li>
+                  </ul>
+                </div>
+            </div>
+            </div>
+            
+        </div>
+        <div class="right-col">
+          <div class="photos" style="margin-left: 50px;margin-right: 50px;">
+            <img src="C:\Users\sbnivetha\Desktop\Web Lab\Images\burger.jpg" alt="">
+            <img src="C:\Users\sbnivetha\Desktop\Web Lab\Images\risotto.jpg" alt="">
+            <img src="C:\Users\sbnivetha\Desktop\Web Lab\Images\waffles.jpg" alt="">
+            <img src="C:\Users\sbnivetha\Desktop\Web Lab\Images\burger.jpg" alt="">
+            <img src="C:\Users\sbnivetha\Desktop\Web Lab\Images\risotto.jpg" alt="">
+            <img src="C:\Users\sbnivetha\Desktop\Web Lab\Images\waffles.jpg" alt="">
+          </div>
+        </div>
+      </div>
+      <script>
+        var app = angular.module('myApp', []);
+    
+        app.controller('ProfileController', function($scope) {
+            $scope.profileName = 'Anna George';
+            $scope.aboutText = 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. In similique assumenda adipisci sint aliquam quasi quas alias amet reiciendis pariatur.';
+            $scope.followersCount = 231;
+            $scope.followingCount = 332;
+            $scope.postsCount = 6;
+        });
+      </script>
+      <footer>
+        <p>Author: Nivetha SB</p>
+        <p>Mail ID: <a href="foodrecipes@gmail.com">foodrecipes@gmail.com</a></p>
+      </footer>
+
+</body>
+</html>
+

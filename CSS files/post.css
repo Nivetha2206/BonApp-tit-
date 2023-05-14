@@ -1,0 +1,31 @@
+body{
+    background-color: #E9FFEB ;
+}
+
+input[type=text] {
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #0E5200;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+.title{
+    font-family: 'Changa', sans-serif; 
+    text-align: center; 
+    color: #0E5200; 
+    font-size: 2em;
+}
+
+.post-btn{
+    background-color: #0E5200;
+    border: none;
+    color: white;
+    font-size: 1em;
+    padding: 10px 30px;
+    text-decoration: none;
+    margin: 4px 2px;
+    border-radius: 20px;
+    cursor: pointer;
+  }

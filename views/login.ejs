@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="loginApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Login Form Example</title>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'>
+  <link rel="stylesheet" href="C:\Users\sbnivetha\Desktop\Web Lab\CSS files\login.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script>
+    angular.module('loginApp', [])
+      .controller('LoginController', function ($scope) {
+        $scope.validateForm = function () {
+          // Add your validation logic here
+          // Return true or false based on the validation result
+          // For example:
+          var x = $scope.email;
+          var y = $scope.password;
+          if (x && y) {
+            return true; // Valid form
+          } else {
+            return false; // Invalid form
+          }
+        };
+      });
+  </script>
+</head>
+<body ng-controller="LoginController">
+<div class="login-form">
+  <form name="myForm" ng-submit="validateForm()" action="template.html">
+    <h1>Login</h1>
+    <div class="content">
+      <div class="input-field">
+        <input name="email" type="email" placeholder="Email" autocomplete="nope" required ng-model="email">
+      </div>
+      <div class="input-field">
+        <input type="password" placeholder="Password" autocomplete="new-password" required ng-model="password">
+      </div>
+      <a href="#" class="link">Forgot Your Password?</a>
+    </div>
+    <div class="action">
+      <button><a href="C:\Users\sbnivetha\Desktop\Web Lab\HTML files\register.html">Register</a></button>
+      <button type="submit">Sign in</button>
+    </div>
+  </form>
+</div>
+</body>
+</html>
